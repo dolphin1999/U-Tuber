@@ -8,6 +8,7 @@ Requirements to run script :-
    python2.7
 
    Tkinter : 
+   
              pip install python-tk
    
              sudo apt-get install python-tk
@@ -23,9 +24,10 @@ Requirements to run script :-
              or Download .tar.gz file and install
              
 
-Run :-
 
-   python u_Download.py
+Run :-
+      
+      python u_Download.py
    
 
     
