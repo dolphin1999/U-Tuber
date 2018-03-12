@@ -31,3 +31,9 @@ Run :-
    
 
     
+If running behind proxy add following lines in code
+
+         import urllib2
+         proxy = urllib2.ProxyHandler({'http':'<username>:<password>@<proxy>:<port>', 'https':'<username>:<password>@<proxy>:<port>'})
+         opener = urllib2.build_opener(proxy)
+         urllib2.install_opener(opener)
