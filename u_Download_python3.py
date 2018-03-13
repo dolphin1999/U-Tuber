@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 
-import Tkinter
-from Tkinter import *
+import tkinter
+from tkinter import *
+import os
+import datetime
 
 
 """
@@ -14,7 +16,7 @@ urllib2.install_opener(opener)
 from pytube import YouTube
 from pytube import Playlist
 
-top = Tkinter.Tk()
+top = tkinter.Tk()
 
 #link_file = open("links.txt","w+")
 global st, pt,v1,v2, linkFile, pth, Frame1, Frame2, Frame3, Lable1, Lable2, Lable3, Entry1, Entry2, Button1, Button2
@@ -27,7 +29,7 @@ linkFile = "links.txt"
 def on_clickNext():
     global st, linkFile, pth
     st = Entry1.get()
-    print st
+    print('st')
     if(st != "") :
         link_file = open(linkFile,"a+")
         link_file.write(st+"\n")
@@ -38,44 +40,49 @@ def on_clickNext():
 
 
 def on_clickDownloadAll():
-        global linkFile, pth, v1
-        path = v1.get()
-        if(path == "<path if any>") :
-        	path = ""
-        on_clickNext()
-	links = open(linkFile,"r")
-	for lk in links:
-		flag = True
-		while flag:
-                	try:
-				yt = YouTube(lk)
-				flag = False
-			except:
-				print("Connection Error")
-				continue
-		
-		yt.streams.first().download(path)
+		global linkFile, pth, v1
+		path = v1.get()
+		print(path)
+		if(path == "<path if any>") :
+			today=datetime.datetime.now()
+			year,month,day=today.year,today.strftime("%b"),today.day
+			custom_path=str(month)+'_'+str(day)+'_'+str(year)
+			path=custom_path
+			if not (os.path.exists(custom_path)): os.mkdir(custom_path)
 
-        v1.set("<path if any>")
-	links.close()
-	links = open(linkFile,"w")
-	links.truncate()
+		on_clickNext()
+		links = open(linkFile,"r")
+		for lk in links:
+			flag = True
+			while flag:
+				try:
+					yt = YouTube(lk)
+					flag = False
+				except:
+					print("Connection Error")
+					continue
+			
+			yt.streams.first().download(path)
+
+		v1.set("<path if any>")
+		links.close()
+		links = open(linkFile,"w")
+		links.truncate()
 
 
 def on_clickDownload():
-        global pt, pth
-        """
-        path = v2.get()
-        if(path == "<path if any>") :
-        	path = ""
-        """
-	pt = Entry2.get()
-        if(pt <> ""):
-         
+	global pt, pth
+	"""
+    path = v2.get()
+    if(path == "<path if any>") :
+    	path = ""
+    """
+	pt=Entry2.get()
+	if(pt != ""):
 		pl = Playlist(pt)
-        	pl.download_all()
-        	#v2.set("<path if any>")
-        	Entry2.delete(0,END)
+		pl.download_all()
+		#v2.set("<path if any>")
+		Entry2.delete(0,END)
 
 
 v1 = StringVar()
@@ -105,11 +112,11 @@ def main():
 	_ana1color = '#d9d9d9' # X11 color: 'gray85' 
 	_ana2color = '#d9d9d9' # X11 color: 'gray85' 
 	font10 = "-family {Noto Sans CJK JP} -size 25 -weight bold "  \
-		    "-slant roman -underline 0 -overstrike 0"
-        font11 = "-family {Noto Sans CJK JP} -size 11 -weight bold "  \
-		    "-slant roman -underline 0 -overstrike 0"
+	    "-slant roman -underline 0 -overstrike 0"
+	font11 = "-family {Noto Sans CJK JP} -size 11 -weight bold "  \
+	    "-slant roman -underline 0 -overstrike 0"
 	font9 = "-family FreeSans -size 9 -weight bold -slant roman "  \
-		    "-underline 0 -overstrike 0"
+	    "-underline 0 -overstrike 0"
 
 	top.geometry("600x500+491+116")
 	top.title("U_TUBER")
@@ -130,7 +137,7 @@ def main():
 	Label3.place(relx=0.21, rely=0.18, height=28, width=350)
 	Label3.configure(activebackground="#f81118")
 	Label3.configure(background="#f81118")
-        Label3.configure(font=font10)
+	Label3.configure(font=font10)
 	Label3.configure(text='''U-TUBER''')
 
 	#Frame2 = Frame(top)
@@ -138,7 +145,7 @@ def main():
 	Frame2.configure(relief=GROOVE)
 	Frame2.configure(borderwidth="2")
 	Frame2.configure(relief=GROOVE)
-        Frame2.configure(background="Gray23")
+	Frame2.configure(background="Gray23")
 	Frame2.configure(width=605)
 
 	#Label1 = Label(Frame2)
@@ -159,20 +166,20 @@ def main():
 	Button1.place(relx=0.03, rely=0.48, height=36, width=87)
 	Button1.configure(activebackground="DarkOrange3")
 	Button1.configure(text='''Add More''')
-        Button1.configure(background = "coral1")
+	Button1.configure(background = "coral1")
 
 	#Button2 = Button(Frame2, command = on_clickDownloadAll)
 	Button2.place(relx=0.76, rely=0.48, height=36, width=107)
 	Button2.configure(activebackground="DarkOrange3")
 	Button2.configure(text='''Download All''')
-        Button2.configure(background = "coral1")
+	Button2.configure(background = "coral1")
 
 	#Frame3 = Frame(top)
 	Frame3.place(relx=-0.02, rely=0.66, relheight=0.27, relwidth=1.02)
 	Frame3.configure(relief=GROOVE)
 	Frame3.configure(borderwidth="2")
 	Frame3.configure(relief=GROOVE)
-        Frame3.configure(background="Gray23")
+	Frame3.configure(background="Gray23")
 	Frame3.configure(width=615)
 
 	#Label2 = Label(Frame3)
@@ -192,23 +199,24 @@ def main():
 	Button3.place(relx=0.78, rely=0.59, height=36, width=97)
 	Button3.configure(activebackground="DarkOrange3")
 	Button3.configure(text='''Download''')
-        Button3.configure(background = "coral1")
+	Button3.configure(background = "coral1")
 
 	Entry3.place(relx=0.23, rely=0.48,height=30, relwidth=0.3)
 	Entry3.configure(background="white")
 	Entry3.configure(font="TkFixedFont")
 	Entry3.configure(selectbackground="#c4c4c4")
 
-        """
-        Entry4.place(relx=0.25, rely=0.62,height=30, relwidth=0.3)
+	"""
+	Entry4.place(relx=0.25, rely=0.62,height=30, relwidth=0.3)
 	Entry4.configure(background="white")
 	Entry4.configure(font="TkFixedFont")
 	Entry4.configure(selectbackground="#c4c4c4")
-        """
+	"""
 
 
 
 	top.mainloop()
 
 
-if __name__ == '__main__': main()
+if __name__ == '__main__':
+    main()
