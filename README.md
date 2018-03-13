@@ -34,7 +34,7 @@ Run :-
 python3.x
 
    
-   Python3.x:
+  First Install Python3.x if not already installed:
    
             sudo apt-get install python3 
             
