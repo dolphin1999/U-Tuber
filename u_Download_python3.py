@@ -47,14 +47,9 @@ def on_clickDownloadAll():
 			today=datetime.datetime.now()
 			year,month,day=today.year,today.strftime("%b"),today.day
 			custom_path=str(month)+'_'+str(day)+'_'+str(year)
-			# str(year)+'_'+str(month)+'_'+str(day)
-			# print(custom_path)
-			# print(os.path.exists(custom_path))
-			if(os.path.exists(custom_path)): path=custom_path
-			else:
-				os.mkdir(custom_path, "0777" )
-				# print('created '+custom_path)
 			path=custom_path
+			if not (os.path.exists(custom_path)): os.mkdir(custom_path)
+
 		on_clickNext()
 		links = open(linkFile,"r")
 		for lk in links:
