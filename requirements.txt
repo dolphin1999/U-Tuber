@@ -1,0 +1,10 @@
+Python2.x
+	pytube =>  pip2 install pytube
+	Tkinter=>  sudo apt install python2-tk
+	Run    =>  python2 u_Download.py
+
+Python3.x
+	python3.x =>  sudo apt install python3
+	pytube 	  =>  pip3 install pytube
+	Tkinter   =>  sudo apt install python3-tk
+	Run       =>  python3 u_Download_python3.py

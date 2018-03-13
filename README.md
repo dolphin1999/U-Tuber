@@ -28,7 +28,39 @@ Requirements to run script :-
 Run :-
       
       python u_Download.py
+
+
+
+python3.x
+   Python3.x:
+            sudo apt-get install python3 
+            
+            sudo apt-get install python3-pip 
+
+   Tkinter : 
    
+             pip install python3-tk
+   
+             sudo apt-get install python3-tk
+               
+   
+   
+   pytube :
+   
+   
+             pip3 install pytube
+             
+             
+             or Download .tar.gz file and install
+             
+
+
+Run :-
+      
+      python3 u_Download_python3.py
+
+
+ 
 
     
 If running behind proxy add following lines in code
