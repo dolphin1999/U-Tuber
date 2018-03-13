@@ -20,17 +20,17 @@ For Python3.x
 
 Then Run this -
 
-chmod +x path_setup.sh
+        chmod +x path_setup.sh
 
-./path_setup.sh
+        ./path_setup.sh
 
 
 
 Now you can open U-Tuber from any directory any time by just using -
 
-For Python2.x  $utuber2 
+        For Python2.x  $utuber2 
 
-For Python2.x  $utuber3 
+        For Python2.x  $utuber3 
 
 
 
