@@ -35,7 +35,7 @@ Now you can open U-Tuber from any directory any time by just using -
 
 
 
-Manually installing requirements :-
+Manually installing requirements Follow this if there was some problem in above method:-
 
    python2.7
 
