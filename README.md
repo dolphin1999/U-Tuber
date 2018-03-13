@@ -29,6 +29,7 @@ chmod +x path_setup.sh
 Now you can open U-Tuber from any directory any time by just using -
 
 For Python2.x  $utuber2 
+
 For Python2.x  $utuber3 
 
 
@@ -63,18 +64,19 @@ Run :-
 
 
 python3.x
-   Python3.x:
+
+   
+  First Install Python3.x if not already installed:
+   
             sudo apt-get install python3 
             
             sudo apt-get install python3-pip 
 
    Tkinter : 
-   
-             pip install python3-tk
+
    
              sudo apt-get install python3-tk
                
-   
    
    pytube :
    
@@ -85,15 +87,11 @@ python3.x
              or Download .tar.gz file and install
              
 
-
 Run :-
       
       python3 u_Download_python3.py
-
-
-
-
     
+
 If running behind proxy add following lines in code
 
 pip install urllib2 
