@@ -32,7 +32,10 @@ Run :-
 
 
 python3.x
+
+   
    Python3.x:
+   
             sudo apt-get install python3 
             
             sudo apt-get install python3-pip 
